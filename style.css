@@ -1,0 +1,2415 @@
+/* =========================================================
+   CELESTIAL LOVE V2.0
+   Main Galaxy Theme + Global Styles
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
+    background: #000;
+    color: white;
+}
+
+
+/* =========================================================
+   SCENES
+   ========================================================= */
+
+.scene {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 2s ease,
+                visibility 2s ease;
+}
+
+
+.scene.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* =========================================================
+   STAR BACKGROUND
+   ========================================================= */
+
+#starContainer {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: white;
+    border-radius: 50%;
+    box-shadow:
+        0 0 10px white,
+        0 0 20px #9fdcff;
+
+    animation:
+        twinkle 3s infinite ease-in-out;
+}
+
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: .2;
+        transform: scale(.8);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+
+}
+
+
+/* =========================================================
+   INTRO SCENE
+   ========================================================= */
+
+#introScene {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #101040,
+            #000 70%
+        );
+
+    z-index: 10;
+}
+
+
+.introText {
+
+    text-align: center;
+
+    animation:
+        fadeInText 3s ease forwards;
+
+}
+
+
+.introText h1 {
+
+    font-family:
+        "Great Vibes",
+        cursive;
+
+    font-size:
+        clamp(35px, 6vw, 70px);
+
+    font-weight:
+        400;
+
+    color:
+        #fff;
+
+    text-shadow:
+
+        0 0 10px #ffb6ff,
+        0 0 25px #b56cff,
+        0 0 50px #4d8cff;
+
+}
+
+
+@keyframes fadeInText {
+
+    from {
+
+        opacity:0;
+        transform:
+            translateY(40px);
+
+    }
+
+    to {
+
+        opacity:1;
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================================
+   ENVELOPE
+   ========================================================= */
+
+
+#envelopeContainer {
+
+    position: relative;
+
+    margin-top:40px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    animation:
+        floatingEnvelope 4s infinite ease-in-out;
+
+}
+
+
+
+#envelope {
+
+    width:
+        clamp(180px,35vw,300px);
+
+    filter:
+
+        drop-shadow(0 0 20px #ffd86b)
+        drop-shadow(0 0 40px #ff75ff);
+
+    transition:
+
+        transform 1s ease,
+        opacity 1s ease;
+
+    z-index:5;
+
+}
+
+
+
+#envelope:hover {
+
+    transform:
+        scale(1.08)
+        rotateY(10deg);
+
+}
+
+
+
+@keyframes floatingEnvelope {
+
+    0% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-25px);
+
+    }
+
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+
+/* Envelope Glow */
+
+.heartGlow {
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,100,220,.4),
+            transparent 70%
+        );
+
+    filter:
+        blur(30px);
+
+    animation:
+        pulseGlow 3s infinite;
+
+}
+
+
+@keyframes pulseGlow {
+
+    0% {
+
+        transform:
+            scale(.8);
+
+        opacity:.5;
+
+    }
+
+
+    50% {
+
+        transform:
+            scale(1.2);
+
+        opacity:1;
+
+    }
+
+
+    100% {
+
+        transform:
+            scale(.8);
+
+        opacity:.5;
+
+    }
+
+}
+
+
+/* =========================================================
+   ENVELOPE OPEN EFFECT
+   ========================================================= */
+
+
+.envelopeOpening {
+
+    animation:
+
+        envelopeDisappear 2s forwards;
+
+}
+
+
+
+@keyframes envelopeDisappear {
+
+
+    0% {
+
+        transform:
+            scale(1)
+            rotateX(0);
+
+        opacity:1;
+
+    }
+
+
+    50% {
+
+        transform:
+            scale(1.3)
+            rotateX(40deg);
+
+    }
+
+
+    100% {
+
+        transform:
+            scale(0)
+            rotateX(90deg);
+
+        opacity:0;
+
+    }
+
+}/* =========================================================
+   GALAXY SCENE
+   ========================================================= */
+
+
+#galaxyScene {
+
+    background:
+        radial-gradient(
+            circle at center,
+            #26104d,
+            #050016 70%
+        );
+
+    perspective:1200px;
+
+    z-index:5;
+
+}
+
+
+
+/* Galaxy Background Image */
+
+#galaxyBackground {
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    inset:0;
+
+    z-index:-3;
+
+    opacity:.85;
+
+    animation:
+
+        galaxyZoom 25s infinite alternate ease-in-out;
+
+}
+
+
+
+@keyframes galaxyZoom {
+
+    from {
+
+        transform:
+            scale(1);
+
+    }
+
+    to {
+
+        transform:
+            scale(1.2);
+
+    }
+
+}
+
+
+
+/* Galaxy Color Overlay */
+
+
+.galaxyOverlay {
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+            circle at 30% 40%,
+            rgba(0,120,255,.35),
+            transparent 40%
+        ),
+
+        radial-gradient(
+            circle at 70% 60%,
+            rgba(255,0,180,.3),
+            transparent 45%
+        ),
+
+        radial-gradient(
+            circle at center,
+            rgba(255,210,80,.15),
+            transparent 60%
+        );
+
+    z-index:-2;
+
+}
+
+
+
+/* =========================================================
+   NEBULA EFFECTS
+   ========================================================= */
+
+
+.nebula {
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(80px);
+
+    opacity:.5;
+
+    animation:
+        nebulaMove 15s infinite alternate ease-in-out;
+
+}
+
+
+
+.nebula1 {
+
+    width:450px;
+
+    height:450px;
+
+    top:10%;
+
+    left:-10%;
+
+    background:
+        radial-gradient(
+            circle,
+            #6f00ff,
+            transparent 70%
+        );
+
+}
+
+
+
+.nebula2 {
+
+    width:500px;
+
+    height:500px;
+
+    bottom:-10%;
+
+    right:-10%;
+
+    background:
+        radial-gradient(
+            circle,
+            #ff3cac,
+            transparent 70%
+        );
+
+    animation-delay:5s;
+
+}
+
+
+
+@keyframes nebulaMove {
+
+
+    from {
+
+        transform:
+            translate(0,0)
+            scale(1);
+
+    }
+
+
+    to {
+
+        transform:
+            translate(80px,-50px)
+            scale(1.3);
+
+    }
+
+}
+
+
+
+/* =========================================================
+   SHOOTING STARS
+   ========================================================= */
+
+
+.shootingStar {
+
+
+    position:absolute;
+
+
+    width:180px;
+
+    height:2px;
+
+
+    background:
+
+        linear-gradient(
+            90deg,
+            white,
+            transparent
+        );
+
+
+    box-shadow:
+
+        0 0 15px white;
+
+
+    transform:
+
+        rotate(-35deg);
+
+
+    animation:
+
+        shooting 2s linear infinite;
+
+
+}
+
+
+
+
+@keyframes shooting {
+
+
+    from {
+
+        transform:
+            translateX(100vw)
+            translateY(-100px)
+            rotate(-35deg);
+
+        opacity:1;
+
+    }
+
+
+    to {
+
+
+        transform:
+            translateX(-300px)
+            translateY(600px)
+            rotate(-35deg);
+
+
+        opacity:0;
+
+
+    }
+
+}
+
+
+
+/* =========================================================
+   PLANETS
+   ========================================================= */
+
+
+.planet {
+
+    position:absolute;
+
+    border-radius:50%;
+
+    animation:
+        planetRotate 20s linear infinite;
+
+}
+
+
+
+.planet1 {
+
+
+    width:100px;
+
+    height:100px;
+
+
+    top:20%;
+
+    left:15%;
+
+
+    background:
+
+        radial-gradient(
+            circle at 30% 30%,
+            #ffd86b,
+            #b45cff,
+            #240046
+        );
+
+
+    box-shadow:
+
+        0 0 30px #ffd86b,
+        0 0 60px #9b5cff;
+
+
+}
+
+
+
+
+.planet2 {
+
+
+    width:150px;
+
+    height:150px;
+
+
+    right:15%;
+
+    bottom:20%;
+
+
+    background:
+
+        radial-gradient(
+            circle at 35% 35%,
+            #ff9de2,
+            #663cff,
+            #12002b
+        );
+
+
+    box-shadow:
+
+        0 0 40px #ff66cc,
+        0 0 80px #713cff;
+
+
+}
+
+
+
+@keyframes planetRotate {
+
+
+    from {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+
+    to {
+
+        transform:
+            rotate(360deg);
+
+    }
+
+
+}
+
+
+
+/* =========================================================
+   FLOATING HEARTS
+   ========================================================= */
+
+
+#floatingHearts {
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+}
+
+
+
+.heart {
+
+
+    position:absolute;
+
+
+    color:#ff8fe8;
+
+
+    font-size:30px;
+
+
+    text-shadow:
+
+        0 0 15px #ff5dd9,
+        0 0 30px #ff5dd9;
+
+
+    animation:
+
+        heartFloat 8s infinite ease-in-out;
+
+
+}
+
+
+
+@keyframes heartFloat {
+
+
+    0% {
+
+        transform:
+            translateY(100vh)
+            scale(.5);
+
+        opacity:0;
+
+    }
+
+
+    20% {
+
+        opacity:1;
+
+    }
+
+
+    100% {
+
+
+        transform:
+
+            translateY(-120vh)
+            scale(1.5);
+
+
+        opacity:0;
+
+
+    }
+
+}/* =========================================================
+   FLOATING POLAROID PHOTOS
+   ========================================================= */
+
+
+#photoContainer {
+
+    position:absolute;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    pointer-events:none;
+
+}
+
+
+
+.photoCard {
+
+    position:absolute;
+
+    width:
+
+        clamp(180px,35vw,260px);
+
+
+    padding:15px;
+
+    background:white;
+
+    border-radius:5px;
+
+
+    box-shadow:
+
+        0 0 25px rgba(255,255,255,.5),
+        0 0 60px rgba(255,100,220,.5);
+
+
+    opacity:0;
+
+    transform:
+
+        translateY(100px)
+        rotate(-10deg);
+
+
+    transition:
+
+        transform .8s ease,
+        box-shadow .8s ease;
+
+
+    pointer-events:auto;
+
+
+}
+
+
+
+.photoCard img {
+
+    width:100%;
+
+    height:auto;
+
+    display:block;
+
+}
+
+
+
+.photoCard:hover {
+
+
+    transform:
+
+        scale(1.15)
+        rotate(0deg);
+
+
+    box-shadow:
+
+        0 0 40px #ffd86b,
+        0 0 80px #ff66dd;
+
+
+}
+
+
+
+.photoVisible {
+
+
+    animation:
+
+        photoAppear 2s forwards,
+        photoFloat 6s infinite ease-in-out 2s;
+
+
+}
+
+
+
+#photo1 {
+
+    transform:
+        translateX(-230px)
+        rotate(-12deg);
+
+}
+
+
+
+#photo2 {
+
+    transform:
+        translateY(0)
+        rotate(5deg);
+
+}
+
+
+
+#photo3 {
+
+    transform:
+        translateX(230px)
+        rotate(12deg);
+
+}
+
+
+
+@keyframes photoAppear {
+
+
+    from {
+
+        opacity:0;
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+@keyframes photoFloat {
+
+
+    0% {
+
+        margin-top:0;
+
+    }
+
+
+    50% {
+
+        margin-top:-25px;
+
+    }
+
+
+    100% {
+
+        margin-top:0;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   LOVE LETTER POPUP
+   ========================================================= */
+
+
+#popupOverlay {
+
+    position:fixed;
+
+    inset:0;
+
+
+    background:
+
+        rgba(0,0,30,.7);
+
+
+    backdrop-filter:
+
+        blur(15px);
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    opacity:0;
+
+    visibility:hidden;
+
+
+    transition:
+
+        .8s ease;
+
+
+    z-index:100;
+
+
+
+}
+
+
+
+#popupOverlay.show {
+
+
+    opacity:1;
+
+    visibility:visible;
+
+
+}
+
+
+
+#letterPopup {
+
+
+    width:
+
+        min(90%,500px);
+
+
+    min-height:350px;
+
+
+    padding:40px;
+
+
+    border-radius:25px;
+
+
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            rgba(255,255,255,.18),
+
+            rgba(255,255,255,.05)
+
+        );
+
+
+    border:
+
+        1px solid rgba(255,255,255,.3);
+
+
+
+    backdrop-filter:
+
+        blur(20px);
+
+
+
+    box-shadow:
+
+
+        0 0 40px rgba(255,120,230,.6);
+
+
+
+    transform:
+
+        scale(.5)
+        rotateY(90deg);
+
+
+    transition:
+
+        1s ease;
+
+
+
+}
+
+
+
+#popupOverlay.show #letterPopup {
+
+
+    transform:
+
+        scale(1)
+        rotateY(0);
+
+
+}
+
+
+
+#typewriterText {
+
+
+    font-family:
+
+        "Great Vibes",
+        cursive;
+
+
+    font-size:
+
+        clamp(25px,5vw,40px);
+
+
+    line-height:
+
+        1.6;
+
+
+    color:white;
+
+
+    text-shadow:
+
+        0 0 10px #ff9de2;
+
+
+}
+
+
+
+#closePopup {
+
+
+    position:absolute;
+
+    top:15px;
+
+    right:20px;
+
+
+    width:40px;
+
+    height:40px;
+
+
+    border-radius:50%;
+
+
+    border:none;
+
+
+    background:
+
+        rgba(255,255,255,.2);
+
+
+    color:white;
+
+
+    font-size:22px;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+/* =========================================================
+   ENDING SCENE
+   ========================================================= */
+
+
+#endingScene {
+
+
+    position:fixed;
+
+    inset:0;
+
+
+    background:
+
+
+        radial-gradient(
+
+            circle,
+
+            #29105c,
+
+            #000
+
+        );
+
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+
+    opacity:0;
+
+    visibility:hidden;
+
+
+    z-index:200;
+
+
+}
+
+
+
+#endingScene.active {
+
+
+    opacity:1;
+
+    visibility:visible;
+
+
+}
+
+
+
+#heartCanvas {
+
+
+    position:absolute;
+
+    inset:0;
+
+
+}
+
+
+
+#endingContent {
+
+
+    text-align:center;
+
+    z-index:5;
+
+
+    padding:30px;
+
+
+}
+
+
+
+#endingContent h1 {
+
+
+    font-family:
+
+        "Great Vibes",
+        cursive;
+
+
+    font-size:
+
+        clamp(35px,6vw,70px);
+
+
+    color:white;
+
+
+    text-shadow:
+
+
+        0 0 15px #ffd86b,
+        0 0 40px #ff66dd;
+
+
+
+}
+
+
+
+#replayButton {
+
+
+    margin-top:40px;
+
+
+    padding:
+
+        15px 40px;
+
+
+    border-radius:50px;
+
+
+    border:none;
+
+
+    cursor:pointer;
+
+
+    font-size:18px;
+
+
+    color:white;
+
+
+    background:
+
+
+        linear-gradient(
+
+            45deg,
+
+            #8b5cff,
+
+            #ff66cc,
+
+            #ffd86b
+
+        );
+
+
+    box-shadow:
+
+
+        0 0 30px #ff66dd;
+
+
+    transition:.5s;
+
+
+}
+
+
+
+#replayButton:hover {
+
+
+    transform:
+
+        scale(1.1);
+
+
+}
+
+
+
+/* =========================================================
+   FIREWORKS CANVAS
+   ========================================================= */
+
+
+#fireworksCanvas {
+
+
+    position:fixed;
+
+    inset:0;
+
+
+    pointer-events:none;
+
+
+    z-index:300;
+
+
+}
+
+
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+
+
+@media(max-width:700px){
+
+
+    .planet1 {
+
+        width:70px;
+
+        height:70px;
+
+    }
+
+
+
+    .planet2 {
+
+        width:100px;
+
+        height:100px;
+
+    }
+
+
+
+    #photoContainer {
+
+
+        transform:
+
+            scale(.75);
+
+
+    }
+
+
+
+    #photo1 {
+
+        transform:
+
+            translateX(-120px)
+            rotate(-10deg);
+
+    }
+
+
+
+    #photo3 {
+
+        transform:
+
+            translateX(120px)
+            rotate(10deg);
+
+    }
+
+
+
+    #letterPopup {
+
+        padding:25px;
+
+    }
+
+
+}/* =========================================================
+   CELESTIAL LOVE V2.0
+   Advanced Effects + Cinematic Transitions
+   ========================================================= */
+
+
+/* =========================================================
+   GOLDEN SPARKLES
+   ========================================================= */
+
+
+.sparkle {
+
+    position:absolute;
+
+    width:8px;
+
+    height:8px;
+
+    background:#ffd86b;
+
+    border-radius:50%;
+
+
+    box-shadow:
+
+        0 0 10px #ffd86b,
+        0 0 30px #ffcc33;
+
+
+    animation:
+
+        sparkleAnimation 3s infinite ease-in-out;
+
+
+}
+
+
+
+@keyframes sparkleAnimation {
+
+
+    0% {
+
+        opacity:0;
+
+        transform:
+            scale(.3)
+            rotate(0deg);
+
+    }
+
+
+    50% {
+
+        opacity:1;
+
+        transform:
+            scale(1.5)
+            rotate(180deg);
+
+    }
+
+
+    100% {
+
+        opacity:0;
+
+        transform:
+            scale(.3)
+            rotate(360deg);
+
+    }
+
+}
+
+
+
+/* =========================================================
+   CAMERA GALAXY TRANSITION
+   ========================================================= */
+
+
+.galaxyEntering {
+
+
+    animation:
+
+        galaxyEnter 4s ease forwards;
+
+
+}
+
+
+
+@keyframes galaxyEnter {
+
+
+    from {
+
+
+        transform:
+
+            scale(5)
+            translateZ(500px);
+
+
+        opacity:0;
+
+
+    }
+
+
+    to {
+
+
+        transform:
+
+            scale(1)
+            translateZ(0);
+
+
+        opacity:1;
+
+
+    }
+
+}
+
+
+
+/* =========================================================
+   ENVELOPE CLICK FLASH
+   ========================================================= */
+
+
+.lightBurst {
+
+
+    position:absolute;
+
+
+    width:20px;
+
+    height:20px;
+
+
+    border-radius:50%;
+
+
+    background:white;
+
+
+    box-shadow:
+
+
+        0 0 50px white,
+
+        0 0 120px #ffd86b,
+
+        0 0 200px #ff66dd;
+
+
+    animation:
+
+        burstEffect 2s forwards;
+
+
+}
+
+
+
+@keyframes burstEffect {
+
+
+    from {
+
+
+        transform:
+
+            scale(1);
+
+
+        opacity:1;
+
+
+    }
+
+
+    to {
+
+
+        transform:
+
+            scale(80);
+
+
+        opacity:0;
+
+
+    }
+
+}
+
+
+
+/* =========================================================
+   EXTRA GALAXY LIGHT RAYS
+   ========================================================= */
+
+
+.lightRay {
+
+
+    position:absolute;
+
+
+    width:2px;
+
+    height:100%;
+
+
+    background:
+
+        linear-gradient(
+
+            transparent,
+
+            rgba(255,255,255,.5),
+
+            transparent
+
+        );
+
+
+    animation:
+
+        rayMove 8s infinite linear;
+
+
+    opacity:.3;
+
+
+}
+
+
+
+@keyframes rayMove {
+
+
+    from {
+
+        transform:
+
+            translateX(-100vw)
+
+            rotate(20deg);
+
+    }
+
+
+    to {
+
+
+        transform:
+
+            translateX(100vw)
+
+            rotate(20deg);
+
+    }
+
+}
+
+
+
+/* =========================================================
+   FLOATING GOLD DUST
+   ========================================================= */
+
+
+.dust {
+
+
+    position:absolute;
+
+
+    width:5px;
+
+    height:5px;
+
+
+    background:#ffd86b;
+
+
+    border-radius:50%;
+
+
+    animation:
+
+        dustFloat 10s infinite ease-in-out;
+
+
+}
+
+
+
+@keyframes dustFloat {
+
+
+    0% {
+
+
+        transform:
+
+            translateY(100vh)
+
+            scale(.5);
+
+
+        opacity:0;
+
+
+    }
+
+
+
+    30% {
+
+
+        opacity:1;
+
+
+    }
+
+
+
+    100% {
+
+
+        transform:
+
+            translateY(-100vh)
+
+            scale(1.5);
+
+
+        opacity:0;
+
+
+    }
+
+
+}
+
+
+
+/* =========================================================
+   HEART STAR FORMATION
+   ========================================================= */
+
+
+.heartStar {
+
+
+    position:absolute;
+
+
+    width:6px;
+
+    height:6px;
+
+
+    border-radius:50%;
+
+
+    background:#fff;
+
+
+    box-shadow:
+
+
+        0 0 15px #fff,
+
+        0 0 40px #ff66cc;
+
+
+    transition:
+
+        3s ease;
+
+
+}
+
+
+
+/* =========================================================
+   FIREWORK PARTICLES
+   ========================================================= */
+
+
+.fireworkParticle {
+
+
+    position:absolute;
+
+
+    width:5px;
+
+    height:5px;
+
+
+    border-radius:50%;
+
+
+    background:white;
+
+
+    box-shadow:
+
+        0 0 10px white;
+
+
+}
+
+
+
+/* =========================================================
+   SMOOTH PERFORMANCE SETTINGS
+   ========================================================= */
+
+
+#galaxyScene *,
+#introScene *,
+#endingScene * {
+
+
+    backface-visibility:hidden;
+
+    transform-style:preserve-3d;
+
+
+}
+
+
+
+/* =========================================================
+   ACCESSIBILITY / REDUCED MOTION
+   ========================================================= */
+
+
+@media(prefers-reduced-motion:reduce){
+
+
+    *,
+    *::before,
+    *::after {
+
+
+        animation-duration:.01ms !important;
+
+        animation-iteration-count:1 !important;
+
+        transition-duration:.01ms !important;
+
+
+    }
+
+
+}/* =========================================================
+   CELESTIAL LOVE V2.0
+   Final Polish + Browser Compatibility
+   ========================================================= */
+
+
+/* =========================================================
+   SMOOTH FADE SYSTEM
+   ========================================================= */
+
+
+.fadeIn {
+
+    animation:
+
+        fadeInAnimation 2s forwards;
+
+}
+
+
+
+.fadeOut {
+
+    animation:
+
+        fadeOutAnimation 2s forwards;
+
+}
+
+
+
+@keyframes fadeInAnimation {
+
+
+    from {
+
+        opacity:0;
+
+        transform:
+
+            translateY(30px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+
+
+@keyframes fadeOutAnimation {
+
+
+    from {
+
+        opacity:1;
+
+    }
+
+
+    to {
+
+        opacity:0;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   AUDIO VISUAL EFFECTS
+   ========================================================= */
+
+
+.musicGlow {
+
+
+    animation:
+
+        musicPulse 3s infinite ease-in-out;
+
+
+}
+
+
+
+@keyframes musicPulse {
+
+
+    0% {
+
+
+        filter:
+
+            brightness(1);
+
+
+    }
+
+
+    50% {
+
+
+        filter:
+
+            brightness(1.3);
+
+
+    }
+
+
+    100% {
+
+
+        filter:
+
+            brightness(1);
+
+
+    }
+
+}
+
+
+
+/* =========================================================
+   MAGIC CURSOR EFFECT
+   ========================================================= */
+
+
+.cursorSpark {
+
+
+    position:absolute;
+
+
+    width:10px;
+
+    height:10px;
+
+
+    border-radius:50%;
+
+
+    pointer-events:none;
+
+
+    background:#ffd86b;
+
+
+    box-shadow:
+
+
+        0 0 15px #ffd86b,
+
+        0 0 40px #ff66dd;
+
+
+    animation:
+
+        cursorFade .8s forwards;
+
+
+}
+
+
+
+@keyframes cursorFade {
+
+
+    from {
+
+
+        opacity:1;
+
+        transform:
+
+            scale(1);
+
+
+    }
+
+
+    to {
+
+
+        opacity:0;
+
+        transform:
+
+            scale(3);
+
+
+    }
+
+
+}
+
+
+
+/* =========================================================
+   BUTTON MAGIC EFFECT
+   ========================================================= */
+
+
+#replayButton::before {
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    inset:-5px;
+
+
+    border-radius:50px;
+
+
+    background:
+
+        linear-gradient(
+
+            45deg,
+
+            #ffd86b,
+
+            #ff66dd,
+
+            #6f5cff
+
+        );
+
+
+    filter:
+
+        blur(15px);
+
+
+    opacity:.7;
+
+
+    z-index:-1;
+
+
+}
+
+
+
+#replayButton {
+
+
+    position:relative;
+
+
+}
+
+
+
+/* =========================================================
+   IMAGE GLOW SUPPORT
+   ========================================================= */
+
+
+.photoCard img {
+
+
+    border-radius:3px;
+
+
+    transition:
+
+        .6s ease;
+
+
+}
+
+
+
+.photoCard:hover img {
+
+
+    filter:
+
+        brightness(1.2);
+
+
+}
+
+
+
+/* =========================================================
+   GLASS EFFECT SUPPORT
+   ========================================================= */
+
+
+#letterPopup {
+
+
+    -webkit-backdrop-filter:
+
+        blur(20px);
+
+
+}
+
+
+
+/* =========================================================
+   MOBILE SMALL DEVICES
+   ========================================================= */
+
+
+@media(max-width:450px){
+
+
+    .introText h1 {
+
+
+        padding:20px;
+
+        font-size:38px;
+
+
+    }
+
+
+
+    #envelope {
+
+
+        width:180px;
+
+
+    }
+
+
+
+    #endingContent h1 {
+
+
+        font-size:38px;
+
+
+    }
+
+
+
+    #replayButton {
+
+
+        padding:
+
+            12px 30px;
+
+
+        font-size:16px;
+
+
+    }
+
+
+}
+
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+
+@media(max-height:500px)
+and (orientation:landscape){
+
+
+    .introText {
+
+
+        transform:
+
+            scale(.7);
+
+
+    }
+
+
+
+    #envelope {
+
+
+        width:150px;
+
+
+    }
+
+
+}
+
+
+
+/* =========================================================
+   HIGH DPI DISPLAY SUPPORT
+   ========================================================= */
+
+
+@media(min-resolution:2dppx){
+
+
+    #galaxyBackground {
+
+
+        image-rendering:
+
+            auto;
+
+
+    }
+
+
+}
+
+
+
+/* =========================================================
+   FINAL PROJECT FINISH
+   ========================================================= */
+
+
+body {
+
+    user-select:none;
+
+    -webkit-user-select:none;
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+
+img {
+
+    pointer-events:none;
+
+}
+
+
+button {
+
+    font-family:
+
+        "Poppins",
+        sans-serif;
+
+}
