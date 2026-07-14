@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>my love for U</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600;700&display=swap"
+          rel="stylesheet">
+</head>
+
+<body>
+
+<!-- ========================================================= -->
+<!-- STARS BACKGROUND -->
+<!-- ========================================================= -->
+
+<div id="starContainer"></div>
+
+<div id="shootingStars"></div>
+
+<div id="sparkles"></div>
+
+<!-- ========================================================= -->
+<!-- INTRO -->
+<!-- ========================================================= -->
+
+<section id="introScene"
+         class="scene active">
+
+    <div class="introText">
+
+        <h1>
+            I made this baby icel😘
+            <br>
+            just for you.
+        </h1>
+
+    </div>
+
+    <div id="envelopeContainer">
+
+        <img
+            id="envelope"
+            src="images/envelope.png"
+            alt="Envelope">
+
+        <div class="heartGlow"></div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- GALAXY -->
+<!-- ========================================================= -->
+
+<section id="galaxyScene"
+         class="scene">
+
+    <div class="galaxyOverlay"></div>
+
+    <img
+        id="galaxyBackground"
+        src="images/galaxy.jpg"
+        alt="Galaxy">
+
+    <!-- Nebula -->
+
+    <div class="nebula nebula1"></div>
+    <div class="nebula nebula2"></div>
+
+    <!-- Planets -->
+
+    <div class="planet planet1"></div>
+    <div class="planet planet2"></div>
+
+    <!-- Floating Hearts -->
+
+    <div id="floatingHearts"></div>
+
+    <!-- Polaroids -->
+
+    <div id="photoContainer">
+
+        <div class="photoCard"
+             id="photo1">
+
+            <img src="images/photo1.jpg">
+
+        </div>
+
+        <div class="photoCard"
+             id="photo2">
+
+            <img src="images/photo2.jpg">
+
+        </div>
+
+        <div class="photoCard"
+             id="photo3">
+
+            <img src="images/photo3.jpg">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- LETTER POPUP -->
+<!-- ========================================================= -->
+
+<div id="popupOverlay">
+
+    <div id="letterPopup">
+
+        <button id="closePopup">
+
+            ✕
+
+        </button>
+
+        <div id="typewriterText">
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ========================================================= -->
+<!-- FINAL -->
+<!-- ========================================================= -->
+
+<section id="endingScene">
+
+    <canvas id="heartCanvas"></canvas>
+
+    <div id="endingContent">
+
+        <h1>
+
+            say yes in our chat if pumapayag ka na na maging gf ko baby. LOVE U
+
+            <br><br>
+
+             salamat sa pag bisita sa aking
+             little universe. ❤️
+
+        </h1>
+
+        <button id="replayButton">
+
+            Replay My Galaxy
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ========================================================= -->
+<!-- AUDIO -->
+<!-- ========================================================= -->
+
+<audio
+    id="envelopeSound">
+
+    <source
+        src="sounds/envelope-open.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<audio
+    id="backgroundMusic"
+    loop>
+
+    <source
+        src="sounds/background.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<audio
+    id="photo1Sound">
+
+    <source
+        src="sounds/photo1.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<audio
+    id="photo2Sound">
+
+    <source
+        src="sounds/photo2.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<audio
+    id="photo3Sound">
+
+    <source
+        src="sounds/photo3.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<audio
+    id="letterOpenSound">
+
+    <source
+        src="sounds/letter-open.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<audio
+    id="endingSound">
+
+    <source
+        src="sounds/ending.mp3"
+        type="audio/mpeg">
+
+</audio>
+
+<!-- ========================================================= -->
+<!-- FIREWORKS -->
+<!-- ========================================================= -->
+
+<canvas id="fireworksCanvas"></canvas>
+
+<!-- ========================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ========================================================= -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
